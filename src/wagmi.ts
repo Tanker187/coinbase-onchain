@@ -6,39 +6,35 @@ import {
   rainbowWallet,
 } from '@rainbow-me/rainbowkit/wallets';
 import { useMemo } from 'react';
-import { http, createConfig } from 'wagmi';
+import { createConfig, http, injected } from 'wagmi';
 import { base, baseSepolia } from 'wagmi/chains';
 import { NEXT_PUBLIC_WC_PROJECT_ID } from './config';
 
 export function useWagmiConfig() {
-  const projectId = NEXT_PUBLIC_WC_PROJECT_ID ?? '';
-  if (!projectId) {
-    const providerErrMessage =
-      'To connect to all Wallets you need to provide a NEXT_PUBLIC_WC_PROJECT_ID env variable';
-    throw new Error(providerErrMessage);
-  }
+  const projectId = NEXT_PUBLIC_WC_PROJECT_ID?.trim();
 
   return useMemo(() => {
-    const connectors = connectorsForWallets(
-      [
-        {
-          groupName: 'Recommended Wallet',
-          wallets: [coinbaseWallet],
-        },
-        {
-          groupName: 'Other Wallets',
-          wallets: [rainbowWallet, metaMaskWallet],
-        },
-      ],
-      {
-        appName: 'onchainkit',
-        projectId,
-      },
-    );
+    const connectors = projectId
+      ? connectorsForWallets(
+          [
+            {
+              groupName: 'Recommended Wallet',
+              wallets: [coinbaseWallet],
+            },
+            {
+              groupName: 'Other Wallets',
+              wallets: [rainbowWallet, metaMaskWallet],
+            },
+          ],
+          {
+            appName: 'onchainkit',
+            projectId,
+          },
+        )
+      : [injected()];
 
-    const wagmiConfig = createConfig({
+    return createConfig({
       chains: [base, baseSepolia],
-      // turn off injected provider discovery
       multiInjectedProviderDiscovery: false,
       connectors,
       ssr: true,
@@ -47,7 +43,5 @@ export function useWagmiConfig() {
         [baseSepolia.id]: http(),
       },
     });
-
-    return wagmiConfig;
   }, [projectId]);
 }
