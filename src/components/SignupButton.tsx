@@ -1,11 +1,14 @@
 'use client';
-import WalletWrapper from './WalletWrapper';
+
+import Link from 'next/link';
 
 export default function SignupButton() {
   return (
-    <WalletWrapper
-      className="ockConnectWallet_Container min-w-[90px] shrink bg-slate-200 text-[#030712] hover:bg-slate-300"
-      text="Sign up"
-    />
+    <Link
+      href="/login?mode=signup"
+      className="inline-flex min-w-[90px] items-center justify-center rounded-lg bg-slate-200 px-4 py-2 text-sm font-medium text-slate-950 hover:bg-slate-300"
+    >
+      Sign up
+    </Link>
   );
 }
