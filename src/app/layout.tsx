@@ -4,6 +4,7 @@ import { NEXT_PUBLIC_URL } from '../config';
 import './global.css';
 import '@coinbase/onchainkit/styles.css';
 import '@rainbow-me/rainbowkit/styles.css';
+import { Analytics } from '@vercel/analytics/next';
 import dynamic from 'next/dynamic';
 
 const OnchainProviders = dynamic(
@@ -35,6 +36,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="flex items-center justify-center">
         <OnchainProviders>{children}</OnchainProviders>
+        <Analytics />
       </body>
     </html>
   );

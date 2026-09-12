@@ -45,8 +45,8 @@ export default function LoginPage() {
     <main className="flex min-h-[70vh] items-center justify-center px-4">
       <form onSubmit={submit} className="flex w-full max-w-md flex-col gap-4 rounded-xl border p-6 shadow-sm">
         <h1 className="text-2xl font-semibold">{mode === 'login' ? 'Sign in' : 'Create account'}</h1>
-        <input className="rounded border p-3" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <input className="rounded border p-3" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} minLength={6} required />
+        <input className="rounded border p-3" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required={true} />
+        <input className="rounded border p-3" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} minLength={6} required={true} />
         {message && <p className="text-sm">{message}</p>}
         <button className="rounded bg-black p-3 text-white disabled:opacity-50" disabled={loading} type="submit">
           {loading ? 'Please wait…' : mode === 'login' ? 'Sign in' : 'Sign up'}
