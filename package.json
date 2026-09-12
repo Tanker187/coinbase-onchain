@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "@coinbase/onchainkit": "^0.35.6",
+    "@supabase/ssr": "^0.5.2",
+    "@supabase/supabase-js": "^2.45.4",
     "next": "^14.2.5",
     "permissionless": "^0.1.26",
     "react": "^18",
