@@ -7,6 +7,7 @@ import {
   rainbowWallet,
 } from '@rainbow-me/rainbowkit/wallets';
 import { useMemo } from 'react';
+import { coinbaseWallet as wagmiCoinbaseWallet } from 'wagmi/connectors';
 import { createConfig, http } from 'wagmi';
 import { base, baseSepolia } from 'wagmi/chains';
 import { NEXT_PUBLIC_WC_PROJECT_ID } from './config';
@@ -15,12 +16,10 @@ export function useWagmiConfig() {
   const projectId = NEXT_PUBLIC_WC_PROJECT_ID?.trim();
 
   return useMemo(() => {
-    const coinbase = coinbaseWallet({ appName: 'Coinbase Onchain' });
-
     if (!projectId) {
       return createConfig({
         chains: [base, baseSepolia],
-        connectors: [coinbase.createConnector],
+        connectors: [wagmiCoinbaseWallet({ appName: 'Coinbase Onchain' })],
         ssr: true,
         transports: {
           [base.id]: http(),
