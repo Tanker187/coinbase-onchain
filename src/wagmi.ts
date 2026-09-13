@@ -15,10 +15,12 @@ export function useWagmiConfig() {
   const projectId = NEXT_PUBLIC_WC_PROJECT_ID?.trim();
 
   return useMemo(() => {
+    const coinbase = coinbaseWallet({ appName: 'Coinbase Onchain' });
+
     if (!projectId) {
       return createConfig({
         chains: [base, baseSepolia],
-        connectors: [coinbaseWallet({ appName: 'Coinbase Onchain' })],
+        connectors: [coinbase.createConnector],
         ssr: true,
         transports: {
           [base.id]: http(),
