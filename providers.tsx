@@ -10,7 +10,9 @@ export function Providers(props: { children: ReactNode }) {
   return (
     <OnchainKitProvider
       apiKey={NEXT_PUBLIC_CDP_API_KEY}
-      chain={base} // add baseSepolia for testing
+      // OnchainKit and Wagmi currently expose compatible runtime chain data
+      // through different viem type instances.
+      chain={base as any}
     >
       {props.children}
     </OnchainKitProvider>
