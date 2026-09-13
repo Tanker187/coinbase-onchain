@@ -18,13 +18,17 @@
   },
   "dependencies": {
     "@coinbase/onchainkit": "^0.35.6",
+    "@rainbow-me/rainbowkit": "^2.1.6",
     "@supabase/ssr": "^0.5.2",
     "@supabase/supabase-js": "^2.45.4",
+    "@tanstack/react-query": "^5.51.23",
     "next": "^14.2.5",
     "permissionless": "^0.1.26",
     "react": "^18",
     "react-dom": "^18",
-    "siwe": "^2.3.2"
+    "siwe": "^2.3.2",
+    "viem": "^2.21.54",
+    "wagmi": "^2.12.25"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.0",
@@ -37,7 +41,7 @@
     "autoprefixer": "^10.4.19",
     "bufferutil": "^4.0.7",
     "encoding": "^0.1.13",
-    "lokijs": "^1.5.12",
+    "lokijs": "^1.5.0",
     "jsdom": "^24.1.0",
     "pino-pretty": "^10.2.0",
     "postcss": "^8.4.38",
@@ -46,7 +50,7 @@
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^14.2.0",
     "typescript": "^5.3.3",
-    "utf-8-validate": "^6.0.3",
+    "utf-8-validate": "^6.0.0",
     "vitest": "^3.0.5"
   }
 }
