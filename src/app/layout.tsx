@@ -4,14 +4,7 @@ import { NEXT_PUBLIC_URL } from '../config';
 import './global.css';
 import '@coinbase/onchainkit/styles.css';
 import '@rainbow-me/rainbowkit/styles.css';
-import dynamic from 'next/dynamic';
-
-const OnchainProviders = dynamic(
-  () => import('src/components/OnchainProviders'),
-  {
-    ssr: false,
-  },
-);
+import ClientOnchainProviders from '../components/ClientOnchainProviders';
 
 export const viewport = {
   width: 'device-width',
@@ -34,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex items-center justify-center">
-        <OnchainProviders>{children}</OnchainProviders>
+        <ClientOnchainProviders>{children}</ClientOnchainProviders>
       </body>
     </html>
   );
