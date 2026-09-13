@@ -2,15 +2,17 @@
 import { OnchainKitProvider } from '@coinbase/onchainkit';
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import type { ReactNode } from 'react';
+import type { ComponentProps, ReactNode } from 'react';
 import { base } from 'viem/chains';
 import { WagmiProvider } from 'wagmi';
 import { NEXT_PUBLIC_CDP_API_KEY } from '../config';
 import { useWagmiConfig } from '../wagmi';
 
 type Props = { children: ReactNode };
+type OnchainKitChain = ComponentProps<typeof OnchainKitProvider>['chain'];
 
 const queryClient = new QueryClient();
+const onchainKitBase = base as OnchainKitChain;
 
 function OnchainProviders({ children }: Props) {
   const wagmiConfig = useWagmiConfig();
@@ -18,7 +20,7 @@ function OnchainProviders({ children }: Props) {
   return (
     <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
-        <OnchainKitProvider apiKey={NEXT_PUBLIC_CDP_API_KEY} chain={base}>
+        <OnchainKitProvider apiKey={NEXT_PUBLIC_CDP_API_KEY} chain={onchainKitBase}>
           <RainbowKitProvider modalSize="compact">
             {children}
           </RainbowKitProvider>
