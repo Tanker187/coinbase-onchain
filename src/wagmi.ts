@@ -1,4 +1,5 @@
 'use client';
+
 import { connectorsForWallets } from '@rainbow-me/rainbowkit';
 import {
   coinbaseWallet,
@@ -17,7 +18,7 @@ export function useWagmiConfig() {
     if (!projectId) {
       return createConfig({
         chains: [base, baseSepolia],
-        connectors: [],
+        connectors: [coinbaseWallet({ appName: 'Coinbase Onchain' })],
         ssr: true,
         transports: {
           [base.id]: http(),
@@ -38,7 +39,7 @@ export function useWagmiConfig() {
         },
       ],
       {
-        appName: 'onchainkit',
+        appName: 'Coinbase Onchain',
         projectId,
       },
     );
