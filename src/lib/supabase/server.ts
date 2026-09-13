@@ -6,7 +6,7 @@ const getSupabaseKey = () =>
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 export async function createClient() {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const key = getSupabaseKey();
 
   if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !key) {
