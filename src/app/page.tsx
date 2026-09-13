@@ -58,9 +58,9 @@ export default function Page() {
                   </p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-                  <p className="text-sm font-medium">Transact</p>
+                  <p className="text-sm font-medium">Protected</p>
                   <p className="mt-1 text-xs leading-5 text-slate-400">
-                    Send an onchain transaction on Base Sepolia.
+                    Wallet actions stay disabled until their destination is verified.
                   </p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
@@ -81,22 +81,16 @@ export default function Page() {
                     </p>
                     <p className="mt-2 text-lg font-semibold sm:text-xl">Mint on Base</p>
                   </div>
-                  <div className="self-start rounded-full bg-blue-500/15 px-3 py-1 text-xs text-blue-200">
-                    Base Sepolia
+                  <div className="self-start rounded-full bg-amber-500/15 px-3 py-1 text-xs text-amber-200">
+                    Temporarily disabled
                   </div>
                 </div>
                 <p className="mt-4 text-sm leading-6 text-slate-400 sm:mt-5">
-                  Connect a wallet to activate the transaction controls.
-                  Transactions are handled through OnchainKit.
+                  The previous mint destination has not been independently verified.
+                  The app will not request a wallet transaction for it.
                 </p>
                 <div className="mt-5 min-w-0 sm:mt-6">
-                  {address ? (
-                    <TransactionWrapper address={address} />
-                  ) : (
-                    <div className="rounded-xl border border-dashed border-white/15 p-4 text-center text-sm text-slate-400 sm:p-5">
-                      Connect your wallet to transact.
-                    </div>
-                  )}
+                  <TransactionWrapper />
                 </div>
               </div>
             </div>
