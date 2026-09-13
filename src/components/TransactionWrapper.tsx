@@ -1,55 +1,13 @@
 'use client';
-import {
-  Transaction,
-  TransactionButton,
-  TransactionStatus,
-  TransactionStatusAction,
-  TransactionStatusLabel,
-} from '@coinbase/onchainkit/transaction';
-import type {
-  TransactionError,
-  TransactionResponse,
-} from '@coinbase/onchainkit/transaction';
-import type { Address, ContractFunctionParameters } from 'viem';
-import {
-  BASE_SEPOLIA_CHAIN_ID,
-  mintABI,
-  mintContractAddress,
-} from '../constants';
 
-export default function TransactionWrapper({ address }: { address: Address }) {
-  const contracts = [
-    {
-      address: mintContractAddress,
-      abi: mintABI,
-      functionName: 'mint',
-      args: [address],
-    },
-  ] as unknown as ContractFunctionParameters[];
-
-  const handleError = (err: TransactionError) => {
-    console.error('Transaction error:', err);
-  };
-
-  const handleSuccess = (response: TransactionResponse) => {
-    console.log('Transaction successful', response);
-  };
-
+export default function TransactionWrapper() {
   return (
-    <div className="flex w-[450px]">
-      <Transaction
-        contracts={contracts}
-        className="w-[450px]"
-        chainId={BASE_SEPOLIA_CHAIN_ID}
-        onError={handleError}
-        onSuccess={handleSuccess}
-      >
-        <TransactionButton className="mt-0 mr-auto ml-auto w-[450px] max-w-full text-[white]" />
-        <TransactionStatus>
-          <TransactionStatusLabel />
-          <TransactionStatusAction />
-        </TransactionStatus>
-      </Transaction>
+    <div className="rounded-xl border border-amber-400/20 bg-amber-400/5 p-4 text-sm text-amber-100">
+      <p className="font-medium">Transaction temporarily disabled</p>
+      <p className="mt-1 text-amber-100/70">
+        The previous mint contract has not been independently verified. No wallet
+        transaction will be submitted until a verified contract is configured.
+      </p>
     </div>
   );
 }
