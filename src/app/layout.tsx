@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './global.css';
 import '@coinbase/onchainkit/styles.css';
 import '@rainbow-me/rainbowkit/styles.css';
-import OnchainProviders from 'src/components/OnchainProviders';
+import OnchainProviders from '../components/OnchainProviders';
 
 export const viewport = {
   width: 'device-width',
