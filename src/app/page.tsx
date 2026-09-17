@@ -4,6 +4,7 @@ import { useAccount } from 'wagmi';
 import Footer from 'src/components/Footer';
 import TransactionWrapper from 'src/components/TransactionWrapper';
 import WalletWrapper from 'src/components/WalletWrapper';
+import OnrampCard from 'src/components/OnrampCard';
 import LoginButton from '../components/LoginButton';
 import SignupButton from '../components/SignupButton';
 
@@ -72,25 +73,47 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="min-w-0 rounded-3xl border border-white/10 bg-white/[0.05] p-3 shadow-2xl shadow-blue-950/30 sm:p-5 lg:p-6">
-              <div className="min-w-0 rounded-2xl bg-slate-900 p-4 sm:p-6">
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="min-w-0">
-                    <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400 sm:text-xs sm:tracking-[0.2em]">
-                      Onchain action
-                    </p>
-                    <p className="mt-2 text-lg font-semibold sm:text-xl">Mint on Base</p>
+            <div className="min-w-0 space-y-5">
+              <div className="rounded-3xl border border-white/10 bg-white/[0.05] p-3 shadow-2xl shadow-blue-950/30 sm:p-5 lg:p-6">
+                <div className="min-w-0 rounded-2xl bg-slate-900 p-4 sm:p-6">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="min-w-0">
+                      <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400 sm:text-xs sm:tracking-[0.2em]">
+                        Fund wallet
+                      </p>
+                      <p className="mt-2 text-lg font-semibold sm:text-xl">Coinbase Onramp</p>
+                    </div>
                   </div>
-                  <div className="self-start rounded-full bg-amber-500/15 px-3 py-1 text-xs text-amber-200">
-                    Temporarily disabled
+                  <p className="mt-4 text-sm leading-6 text-slate-400 sm:mt-5">
+                    Fund a connected Base wallet through Coinbase Onramp. The
+                    purchase flow opens Coinbase's hosted funding experience.
+                  </p>
+                  <div className="mt-5 min-w-0 sm:mt-6">
+                    <OnrampCard />
                   </div>
                 </div>
-                <p className="mt-4 text-sm leading-6 text-slate-400 sm:mt-5">
-                  The previous mint destination has not been independently verified.
-                  The app will not request a wallet transaction for it.
-                </p>
-                <div className="mt-5 min-w-0 sm:mt-6">
-                  <TransactionWrapper />
+              </div>
+
+              <div className="rounded-3xl border border-white/10 bg-white/[0.05] p-3 shadow-2xl shadow-blue-950/30 sm:p-5 lg:p-6">
+                <div className="min-w-0 rounded-2xl bg-slate-900 p-4 sm:p-6">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="min-w-0">
+                      <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400 sm:text-xs sm:tracking-[0.2em]">
+                        Onchain action
+                      </p>
+                      <p className="mt-2 text-lg font-semibold sm:text-xl">Mint on Base</p>
+                    </div>
+                    <div className="self-start rounded-full bg-amber-500/15 px-3 py-1 text-xs text-amber-200">
+                      Temporarily disabled
+                    </div>
+                  </div>
+                  <p className="mt-4 text-sm leading-6 text-slate-400 sm:mt-5">
+                    The previous mint destination has not been independently verified.
+                    The app will not request a wallet transaction for it.
+                  </p>
+                  <div className="mt-5 min-w-0 sm:mt-6">
+                    <TransactionWrapper />
+                  </div>
                 </div>
               </div>
             </div>
