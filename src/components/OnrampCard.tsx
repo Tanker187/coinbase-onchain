@@ -18,7 +18,6 @@ export default function OnrampCard() {
       assetSymbol="USDC"
       country="US"
       currency="USD"
-      network="base"
     />
   );
 }
