@@ -19,12 +19,11 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Onchain App Template',
-  description: 'Built with OnchainKit',
+  title: 'Coinbase Onchain',
+  description: 'Connect your wallet and interact with Base onchain.',
   openGraph: {
-    title: 'Onchain App Template',
-    description: 'Built with OnchainKit',
-    images: [`${NEXT_PUBLIC_URL}/vibes/vibes-19.png`],
+    title: 'Coinbase Onchain',
+    description: 'Connect your wallet and interact with Base onchain.',
   },
 };
 
