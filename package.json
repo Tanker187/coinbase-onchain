@@ -17,6 +17,7 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@coinbase/cdp-hooks": "latest",
     "@coinbase/onchainkit": "^0.35.6",
     "@rainbow-me/rainbowkit": "^2.1.6",
     "@supabase/ssr": "^0.5.2",
@@ -50,7 +51,6 @@
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^14.2.0",
     "typescript": "^5.3.3",
-    "utf-8-validate": "^6.0.0",
     "vitest": "^3.0.5"
   }
 }
