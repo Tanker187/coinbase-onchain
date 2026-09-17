@@ -4,6 +4,7 @@ import { useAccount } from 'wagmi';
 import Footer from 'src/components/Footer';
 import TransactionWrapper from 'src/components/TransactionWrapper';
 import WalletWrapper from 'src/components/WalletWrapper';
+import BorrowPanel from '../components/BorrowPanel';
 import LoginButton from '../components/LoginButton';
 import SignupButton from '../components/SignupButton';
 
@@ -29,7 +30,7 @@ export default function Page() {
         </header>
 
         <section className="flex flex-1 items-start py-8 sm:items-center sm:py-12 lg:py-16">
-          <div className="grid w-full min-w-0 gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-10">
+          <div className="grid w-full min-w-0 gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-start lg:gap-10">
             <div className="min-w-0">
               <div className="mb-5 inline-flex rounded-full border border-blue-400/20 bg-blue-400/10 px-3 py-1 text-xs text-blue-200 sm:mb-6 sm:text-sm">
                 Built for Base
@@ -70,27 +71,34 @@ export default function Page() {
                   </p>
                 </div>
               </div>
+
+              <div className="mt-8 lg:hidden">
+                <BorrowPanel />
+              </div>
             </div>
 
-            <div className="min-w-0 rounded-3xl border border-white/10 bg-white/[0.05] p-3 shadow-2xl shadow-blue-950/30 sm:p-5 lg:p-6">
-              <div className="min-w-0 rounded-2xl bg-slate-900 p-4 sm:p-6">
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="min-w-0">
-                    <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400 sm:text-xs sm:tracking-[0.2em]">
-                      Onchain action
-                    </p>
-                    <p className="mt-2 text-lg font-semibold sm:text-xl">Mint on Base</p>
+            <div className="min-w-0 space-y-5">
+              <BorrowPanel />
+              <div className="rounded-3xl border border-white/10 bg-white/[0.05] p-3 shadow-2xl shadow-blue-950/30 sm:p-5 lg:p-6">
+                <div className="min-w-0 rounded-2xl bg-slate-900 p-4 sm:p-6">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="min-w-0">
+                      <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400 sm:text-xs sm:tracking-[0.2em]">
+                        Onchain action
+                      </p>
+                      <p className="mt-2 text-lg font-semibold sm:text-xl">Mint on Base</p>
+                    </div>
+                    <div className="self-start rounded-full bg-amber-500/15 px-3 py-1 text-xs text-amber-200">
+                      Temporarily disabled
+                    </div>
                   </div>
-                  <div className="self-start rounded-full bg-amber-500/15 px-3 py-1 text-xs text-amber-200">
-                    Temporarily disabled
+                  <p className="mt-4 text-sm leading-6 text-slate-400 sm:mt-5">
+                    The previous mint destination has not been independently verified.
+                    The app will not request a wallet transaction for it.
+                  </p>
+                  <div className="mt-5 min-w-0 sm:mt-6">
+                    <TransactionWrapper />
                   </div>
-                </div>
-                <p className="mt-4 text-sm leading-6 text-slate-400 sm:mt-5">
-                  The previous mint destination has not been independently verified.
-                  The app will not request a wallet transaction for it.
-                </p>
-                <div className="mt-5 min-w-0 sm:mt-6">
-                  <TransactionWrapper />
                 </div>
               </div>
             </div>
